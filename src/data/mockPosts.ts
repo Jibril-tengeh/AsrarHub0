@@ -18,6 +18,7 @@ export interface Post {
     en: string;
     ha: string;
   };
+  audioUrl?: string;
   tags: string[];
   author: string;
   date: string;
@@ -42,6 +43,7 @@ export const mockPosts: Post[] = [
       en: 'Surah Al-Fatiha (The Opening) is the first surah of the Quran.\n\nThis secret is very powerful to solve any difficult problem or to obtain an opening in business. It is recommended to recite it 41 times after the Fajr prayer for 41 consecutive days.\n\nMake sure to be in a state of purity and to have a noble intention before starting this wird.',
       ha: 'Surah Al-Fatiha (Budewa) ita ce sura ta farko a cikin Alqur\'ani.\n\nWannan sirrin yana da matukar karfi wajen warware duk wata matsala mai wuya ko kuma samun budi a harkar kasuwanci. Ana ba da shawarar karanta ta sau 41 bayan sallar Asuba na tsawon kwanaki 41 a jere.\n\nTabbatar kana cikin tsarki kuma kana da kyakkyawar niyya kafin fara wannan wirdin.',
     },
+    audioUrl: 'https://cdn.islamic.network/quran/audio/128/ar.alafasy/1.mp3',
     tags: ['fatiha', 'success', 'prosperity', 'wealth'],
     author: 'Cheikh Ahmed',
     date: '2023-11-15'
@@ -64,6 +66,7 @@ export const mockPosts: Post[] = [
       en: 'For daily protection, it is recommended to read Ayatul Kursi (The Verse of the Throne) 3 times in the morning and 3 times in the evening.\n\nThen, read the last 3 surahs of the Quran (Al-Ikhlas, Al-Falaq, An-Nas) 3 times each, blowing into your hands and passing them over your body.',
       ha: 'Domin tsari na yau da kullun, ana so a karanta Ayatul Kursiyyu sau 3 da safe da sau 3 da yamma.\n\nSannan ka karanta surori guda 3 na karshen Alqur\'ani (Al-Ikhlas, Al-Falaq, An-Nas) kowacce sau 3, ka tofa a hannunka kana shafa a jikinka.',
     },
+    audioUrl: 'https://cdn.islamic.network/quran/audio/128/ar.alafasy/262.mp3',
     tags: ['protection', 'kursi', 'daily'],
     author: 'Oustaz Ali',
     date: '2023-10-30'
