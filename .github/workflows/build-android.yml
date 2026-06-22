@@ -29,19 +29,21 @@ jobs:
         npx cap add android || echo "Already added"
         npx cap sync android
 
-    - name: Set up JDK 17
+    - name: Set up JDK 21
       uses: actions/setup-java@v4
       with:
-        java-version: '17'
+        java-version: '21'
         distribution: 'temurin'
 
-    - name: Ensure gradlew has correct line endings
+    - name: Ensure gradlew has correct line endings and permissions
       working-directory: ./android
-      run: sed -i 's/\r$//' gradlew
+      run: |
+        sed -i 's/\r$//' gradlew
+        chmod +x gradlew
 
     - name: Build Android APK
       working-directory: ./android
-      run: bash ./gradlew assembleDebug --stacktrace
+      run: ./gradlew assembleDebug --stacktrace
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
