@@ -38,13 +38,23 @@ jobs:
     - name: Ensure gradlew has correct line endings and permissions
       working-directory: ./android
       run: |
+        gradle wrapper --gradle-version 8.14.3
         sed -i 's/\r$//' gradlew
         chmod +x gradlew
-        curl -sL https://raw.githubusercontent.com/gradle/gradle/master/gradle/wrapper/gradle-wrapper.jar -o gradle/wrapper/gradle-wrapper.jar
+
+    - name: Accept Android SDK licenses
+      run: yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
     - name: Build Android APK
       working-directory: ./android
-      run: ./gradlew assembleDebug --stacktrace
+      run: ./gradlew assembleDebug --stacktrace > gradle-build.log 2>&1 || (cat gradle-build.log && exit 1)
+
+    - name: Upload Build Log Artifact
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: gradle-build-log
+        path: android/gradle-build.log
 
     - name: Upload APK Artifact
       uses: actions/upload-artifact@v4
