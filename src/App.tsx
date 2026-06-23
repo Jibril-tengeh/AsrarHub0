@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { LanguageProvider } from './contexts/LanguageContext';
 import { FontProvider } from './contexts/FontContext';
@@ -16,7 +16,7 @@ export default function App() {
     <ThemeProvider>
       <LanguageProvider>
         <FontProvider>
-          <BrowserRouter>
+          <HashRouter>
             <div className="min-h-screen bg-slate-50 dark:bg-slate-950 transition-colors duration-200 selection:bg-emerald-200 dark:selection:bg-emerald-900 pb-16">
               <Header />
               <main className="container mx-auto px-4 md:px-8 pb-16">
@@ -30,7 +30,7 @@ export default function App() {
               </main>
               <BottomNav />
             </div>
-          </BrowserRouter>
+          </HashRouter>
         </FontProvider>
       </LanguageProvider>
     </ThemeProvider>
